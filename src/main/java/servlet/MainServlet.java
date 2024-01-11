@@ -19,7 +19,6 @@ public class MainServlet extends HttpServlet {
     //2. При каждом обращении к этому сервлету
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // выполнить это тут !
         super.service(req, resp);
         System.out.println("This is SERVICE method !");
     }
@@ -31,20 +30,7 @@ public class MainServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/html");
-
-/*            //достать параметры из пути
-            String nameFromURL = req.getParameter("name");*/
-
-        String nameFromURL = req.getRequestURI();
-
-        PrintWriter writer = resp.getWriter();
-        writer.println("Hello " + nameFromURL);
-        writer.close();
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        getServletContext().getRequestDispatcher("/pages/page-answer-from-servlet.html").forward(req, resp);
     }
-
-    //TODO: scope, как возвращать HTML, Filter, Listener, как загружать на сервер файлы, HTML, CSS
-
-
 }
