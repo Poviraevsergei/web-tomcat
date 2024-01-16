@@ -4,32 +4,4 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
-
-    <filter>
-        <filter-name>MyFirstFilterName</filter-name>
-        <filter-class>filter.FirstFilter</filter-class>
-    </filter>
-
-    <filter-mapping>
-        <filter-name>MyFirstFilterName</filter-name>
-        <servlet-name>MyFirstServletName</servlet-name>
-    </filter-mapping>
-
-    <listener>
-        <listener-class>listener.ListenerContextUp</listener-class>
-    </listener>
-
-    <listener>
-        <listener-class>listener.ListenerRequestTms</listener-class>
-    </listener>
-
-    <servlet>
-        <servlet-name>MyFirstServletName</servlet-name>
-        <servlet-class>servlet.MainServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>MyFirstServletName</servlet-name>
-        <url-pattern>/my-first-servlet</url-pattern>
-    </servlet-mapping>
 </web-app>
