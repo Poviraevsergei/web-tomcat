@@ -2,23 +2,21 @@ package servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.io.Writer;
 
-@WebServlet("/balance")
-public class BalanceServlet extends HttpServlet {
-
-
+@WebServlet("/cookie-example")
+public class CookieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String[] names = {"Dima", "Toma", "Kiril", "Sergey", "Anton"};
-        req.setAttribute("names", names);
-
-        req.setAttribute("visible",req.getParameter("visible"));
-        getServletContext().getRequestDispatcher("/pages/balance-page.jsp").forward(req, resp);
+        Cookie cookie = new Cookie("username", req.getParameter("cookie-key"));
+        resp.addCookie(cookie);
+        Writer writer = resp.getWriter();
+        writer.write("Cookie was added!");
     }
 }
