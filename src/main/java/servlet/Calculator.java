@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class Calculator {
 
-    public static LinkedHashMap<String, String> history = new LinkedHashMap<>();
+    public static ArrayList<String> history = new ArrayList<>();
 
     public static final String STRING = "\"-\" means substract;\n" +
             "\"+\" means addition;";

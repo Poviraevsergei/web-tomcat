@@ -12,8 +12,7 @@ import java.io.IOException;
 public class HistoryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //1. достать историю
-        //2. положить в память
-        //3. отдать страницу с историей
+        req.setAttribute("history", Calculator.history);
+        getServletContext().getRequestDispatcher("/history.jsp").forward(req, resp);
     }
 }
